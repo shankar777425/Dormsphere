@@ -7,11 +7,16 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #0b1220; /* Primary background fallback */
     color: white;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ================= NAVBAR ================= */
@@ -34,17 +39,16 @@ body {
     gap: 12px;
     font-size: 24px;
     font-weight: 700;
-    /* Matched exactly to the cyan-blue and neon-purple from your logo image */
     background: linear-gradient(90deg, #51cbf5 0%, #3b82f6 40%, #9d4edd 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Styles the small image in the navbar */
 .logo-icon {
     height: 35px;
     width: auto;
     object-fit: contain;
+    mix-blend-mode: lighten;
 }
 
 /* ================= NAV LINKS ================= */
@@ -52,7 +56,7 @@ body {
     display: flex;
     list-style: none;
     gap: 25px;
-    align-items: center; /* Keeps buttons aligned with normal links */
+    align-items: center;
 }
 
 .nav-links a {
@@ -82,7 +86,42 @@ body {
     color: #3b82f6;
 }
 
-/* ================= LOGIN / SIGNUP (FIXED CLASSES) ================= */
+/* ================= HAMBURGER MENU (hidden on desktop) ================= */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #e2e8f0;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ================= LOGIN / SIGNUP BUTTONS ================= */
 .btn-small {
     background: rgba(255, 255, 255, 0.1);
     padding: 8px 16px;
@@ -93,7 +132,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Specific styling for the 'primary' Sign Up button */
 .btn-small.primary {
     background: linear-gradient(90deg, #3b82f6, #8b5cf6);
     border: none;
@@ -102,6 +140,22 @@ body {
 .btn-small:hover {
     transform: translateY(-2px);
     background: #3b82f6;
+}
+
+.btn-small-primary {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white !important;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+    border: none;
+}
+
+.btn-small-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 /* ================= HERO ================= */
@@ -114,7 +168,6 @@ body {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), radial-gradient(circle at top, #1e293b, #0b1220);
 }
 
-/* Holds the two columns together */
 .hero-container {
     display: flex;
     align-items: center;
@@ -124,26 +177,26 @@ body {
     gap: 60px;
 }
 
-/* Controls the layout space for the left image */
 .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
 }
 
-/* Restricts large logo dimensions so it fits nicely on screen */
 .large-logo {
     max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 550px;
     object-fit: contain;
+    mix-blend-mode: lighten;
 }
 
-/* Left aligns textual content to match reference imagery */
 .hero-content {
     flex: 1;
     text-align: left;
+    min-width: 0;
 }
 
 .hero h1 {
@@ -166,6 +219,7 @@ body {
     display: flex;
     justify-content: flex-start;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -269,47 +323,6 @@ body {
     color: #cbd5e1;
 }
 
-/* ================= FOOTER ================= */
-footer {
-    padding: 20px;
-    text-align: center;
-    background: #020617;
-    color: #94a3b8;
-    font-size: 14px;
-}
-.large-logo {
-    max-width: 100%;
-    height: auto;
-    max-height: 550px;
-    object-fit: contain;
-    mix-blend-mode: lighten; /* This hides the dark background box */
-}
-
-.logo-icon {
-    height: 35px;
-    width: auto;
-    object-fit: contain;
-    mix-blend-mode: lighten; /* This hides the dark background box in the nav */
-}
-/* ================= LOGIN / SIGNUP BUTTON FIXES ================= */
-/* Update these selector names if you decided to use hyphens in your HTML */
-.btn-small-primary {
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    padding: 8px 16px;
-    border-radius: 8px;
-    color: white !important;
-    text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
-    border: none;
-}
-
-.btn-small-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-/* ================= CONTACT LINK STYLING ================= */
 .contact p a {
     color: #3b82f6;
     text-decoration: none;
@@ -322,18 +335,98 @@ footer {
     text-decoration: underline;
 }
 
-/* ================= RESPONSIVE MOBILE FIXES ================= */
-@media (max-width: 768px) {
+/* ================= FOOTER ================= */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #020617;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE FIXES
+   ===================================================== */
+
+/* ---- Tablets & small laptops ---- */
+@media (max-width: 992px) {
     .navbar {
-        padding: 15px 24px;
+        padding: 16px 32px;
     }
-    
-    .nav-links {
-        display: none; /* Consider adding a mobile menu burger icon later! */
+
+    .hero {
+        padding: 40px 32px;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
     }
 
     .hero-container {
-        flex-direction: column-reverse; /* Puts image on top, text on bottom on mobile */
+        gap: 30px;
+    }
+
+    .large-logo {
+        max-height: 320px;
+    }
+}
+
+/* ---- Mobile phones & small tablets ---- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 24px;
+        position: relative;
+    }
+
+    /* Show hamburger, hide default nav */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: rgba(15, 23, 42, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .nav-links.active {
+        max-height: 400px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 14px 24px;
+    }
+
+    .nav-links a.btn-small-primary {
+        display: inline-block;
+        width: calc(100% - 48px);
+        margin: 8px 24px;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 50px 24px;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse; /* image on top, text below */
         gap: 30px;
         text-align: center;
     }
@@ -348,5 +441,82 @@ footer {
 
     .hero h1 {
         font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+    }
+
+    .large-logo {
+        max-height: 260px;
+    }
+
+    .features,
+    .about,
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .features h2,
+    .about h2,
+    .contact h2 {
+        font-size: 1.9rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Small phones ---- */
+@media (max-width: 420px) {
+    .navbar {
+        padding: 14px 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+        gap: 8px;
+    }
+
+    .logo-icon {
+        height: 28px;
+    }
+
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn,
+    .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .large-logo {
+        max-height: 200px;
+    }
+
+    .features h2,
+    .about h2,
+    .contact h2 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 20px;
     }
 }

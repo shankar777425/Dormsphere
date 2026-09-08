@@ -16,7 +16,14 @@
         <span>DormSphere</span>
     </div>
 
-    <ul class="nav-links">
+    <!-- Hamburger button for mobile -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
         <li><a href="#">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#about">About</a></li>
@@ -28,7 +35,7 @@
 
 <header class="hero">
     <div class="hero-container">
-        
+
         <div class="hero-image">
             <img src="logo.jpeg" alt="DormSphere Hero Banner" class="large-logo">
         </div>
@@ -94,5 +101,25 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close menu when a link is tapped
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+</script>
 </body>
 </html>
