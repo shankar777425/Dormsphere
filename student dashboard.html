@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DormSphere Pro Dashboard</title>
+    <link rel="stylesheet" href="css/student dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard-viewport">
+    
+    <aside class="sidebar-panel">
+        <div class="brand-axis">
+            <img src="logo.jpeg" alt="DormSphere Logo" class="brand-logo">
+            <h2>DormSphere</h2>
+        </div>
+       <nav class="nav-links">
+          <a href="student dashboard.html" class="link-item active">🏠 Dashboard</a>
+          <a href="student room hub.html" class="link-item">🛏️ Room Hub</a>
+          <a href="student hostel fees.html" class="link-item">💳 Hostel Fees</a>
+          <a href="student mess menu.html" class="link-item">🍽️ Mess Menu</a>
+          <a href="student attendance.html" class="link-item">📅 Attendance</a>
+          <a href="student notices.html" class="link-item">📢 Notices</a>
+          <a href="student complaint.html" class="link-item">📝 Complaints</a>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="#" class="link-item exit-btn">🚪 Logout</a>
+        </div>
+    </aside>
+
+   <main class="main-workspace">
+
+    <header class="hero-profile-section">
+        <div class="profile-meta-card">
+            <div class="avatar-ring">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Shankar Shah">
+            </div>
+            <div class="profile-strings">
+                <span class="welcome-tag">Welcome Back</span>
+                <h1> shankar kumar shah</h1>
+                <p>Computer science & Engineering</p>
+            </div>
+        </div>
+
+        <div class="room-spec-card">
+            <div class="card-title-row">
+                <h3>🛏️ Room Hub</h3>
+                <span class="live-badge">Block A</span>
+            </div>
+            <div class="specs-grid">
+                <div class="spec-node"><span class="label">Room</span><span class="val">205</span></div>
+                <div class="spec-node"><span class="label">Bed Space</span><span class="val">Bunk B</span></div>
+                <div class="spec-node"><span class="label">WiFi Status</span><span class="val online">Excellent</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-grid">
+        
+        <section class="glass-widget grid-card">
+            <div class="widget-header">
+                <h3>💳 Hostel Fees</h3>
+                <span class="status-pill cleared">Paid</span>
+            </div>
+            <div class="card-content-body">
+                <div class="amount-block">
+                    <span class="mini-label">Current Outstanding Balance</span>
+                    <h2>Rs.00</h2>
+                </div>
+                <div class="next-cycle">
+                    <p>Next Invoice: <strong>July 01, 2026</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-widget grid-card">
+            <div class="widget-header">
+                <h3>🍽️ Mess Menu</h3>
+                <span class="status-pill active-menu">Dinner Live</span>
+            </div>
+            <div class="card-content-body">
+                <div class="menu-block">
+                    <span class="mini-label">Today's Evening Special</span>
+                    <h2>Roti & Paneer</h2>
+                </div>
+                <div class="next-cycle">
+                    <p>Tomorrow Breakfast: <strong>Aloo Paratha</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-widget grid-card">
+            <div class="widget-header">
+                <h3>📅 Attendance</h3>
+                <span class="status-pill safe">85%</span>
+            </div>
+            <div class="card-content-body">
+                <div class="attendance-block">
+                    <span class="mini-label">Overall Attendance Status</span>
+                    <h2>Good Standing</h2>
+                </div>
+                <div class="next-cycle">
+                    <p>Total Classes: <strong>42 / 50 Attended</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-widget grid-card">
+            <div class="widget-header">
+                <h3>📢 Notices Board</h3>
+                <a href="#" class="view-all">See All</a>
+            </div>
+            <div class="card-content-body standard-stack">
+                <div class="notice-strip critical">
+                    <div class="strip-body">
+                        <h4>Hostel assembly required tomorrow at 7:00 PM</h4>
+                        <span>Posted 2 hours ago • Admin</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-widget grid-card">
+            <div class="widget-header">
+                <h3>📝 Complaints</h3>
+                <span class="count-bubble">2 Tickets</span>
+            </div>
+            <div class="card-content-body standard-stack">
+                <div class="ticket-row status-pending">
+                    <div class="ticket-info">
+                        <h4>Washroom water pipe leakage reported</h4>
+                        <p>Ticket #DS-4920 • Plumb Repair</p>
+                    </div>
+                    <span class="badge-status pending">Pending</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-widget grid-card actions-flex-card">
+            <div class="widget-header">
+                <h3>⚡ Fast Track Actions</h3>
+            </div>
+            <div class="action-strip vertical-strip">
+                <button class="btn-action primary" onclick="window.location.href='student complaint.html'">📝 Log New Complaint</button>
+                <button class="btn-action secondary">📞 Call Desk Warden</button>
+            </div>
+        </section>
+
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>
