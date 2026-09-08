@@ -1,0 +1,433 @@
+/* ==========================================================================
+   THEME CONFIGURATION & STRUCTURAL RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --app-bg: #030712; 
+    --sidebar-bg: #0b0f19;
+    --widget-bg: rgba(17, 24, 39, 0.45); 
+    --widget-border: rgba(255, 255, 255, 0.06);
+    --widget-border-glow: rgba(255, 255, 255, 0.1);
+    --accent-glow: #3b82f6;
+    --text-primary: #f9fafb;
+    --text-muted: #9ca3af; 
+    --text-bright-dim: #e5e7eb;
+}
+
+body {
+    background: var(--app-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.dashboard-viewport {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   SIDEBAR ARCHITECTURE
+   ========================================================================== */
+.sidebar-panel {
+    width: 260px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--widget-border);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 24px; 
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+.brand-axis {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px; 
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.brand-axis h2 {
+    font-size: 22px;                     
+    font-weight: 700;                     
+    background: linear-gradient(to right, #22d3ee, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+}
+
+.link-item {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.link-item:hover, .link-item.active {
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    padding-left: 20px; 
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.exit-btn:hover {
+    background: rgba(239, 68, 68, 0.08);
+    color: #f87171;
+}
+
+/* ==========================================================================
+   WORKSPACE CONTENT AND LAYOUT BLOCKS
+   ========================================================================== */
+.main-workspace {
+    margin-left: 260px;
+    flex: 1;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* HERO COMPONENT */
+.hero-profile-section {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 30px;
+}
+
+.profile-meta-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid var(--widget-border-glow);
+    padding: 30px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.avatar-ring {
+    border: 2.5px solid var(--accent-glow);
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-ring img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-strings .welcome-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #60a5fa;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.profile-strings h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.profile-strings p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* Glass Widgets */
+.room-spec-card, .glass-widget {
+    background: var(--widget-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--widget-border);
+    border-radius: 24px;
+    padding: 30px;
+}
+
+.card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title-row h3, .widget-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-bright-dim);
+}
+
+.live-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.spec-node {
+    background: rgba(3, 7, 18, 0.4);
+    padding: 14px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.spec-node .label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.spec-node .val {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.spec-node .val.online {
+    color: #10b981;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==========================================================================
+   WIDGET GRID LAYOUT
+   ========================================================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 24px; 
+    width: 100%;
+}
+
+.grid-card {
+    min-height: 220px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-top: 16px;
+}
+
+.amount-block h2, .menu-block h2, .attendance-block h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.mini-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.next-cycle {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.standard-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Status Pills & Badges */
+.status-pill.cleared, .status-pill.safe {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-pill.active-menu { 
+    background: rgba(245, 158, 11, 0.1); 
+    color: #f59e0b; 
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.count-bubble {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* List Items / Ticket Rows */
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: rgba(3, 7, 18, 0.3);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    width: 100%;
+}
+
+.ticket-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text-bright-dim);
+}
+
+.ticket-info p {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.badge-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+.badge-status.pending { 
+    background: rgba(245, 158, 11, 0.1); 
+    color: #fbbf24; 
+}
+
+/* Buttons and Inputs */
+.vertical-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-action {
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-action.primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.custom-input {
+    width: 100%;
+    background: rgba(3, 7, 18, 0.5);
+    border: 1px solid var(--widget-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 14px;
+    outline: none;
+    margin-top: 6px;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1280px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-viewport { 
+        flex-direction: column; 
+    }
+    .sidebar-panel { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        padding: 20px; 
+    }
+    .main-workspace { 
+        margin-left: 0; 
+        padding: 20px; 
+    }
+    .hero-profile-section { 
+        grid-template-columns: 1fr; 
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr; 
+    }
+}
