@@ -10,7 +10,7 @@
 
 :root {
     --primary: #ff7200; --primary-dark: #e56500; --secondary: #1e3a8a; --secondary-light: #2563eb;
-    --accent: #08dcd1; --accent-hover: #06b8b0; --bg: #f4f7ff; --card-bg: #ffffff;
+    --accent: #08dcd1; --accent-hover: #06b8b0; --bg: #0f172a; --card-bg: #beb8b8;
     --text-dark: #1a1a2e; --text-medium: #4a5568; --text-light: #718096; --border: #e2e8f0;
     --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
@@ -218,7 +218,7 @@ body {
 
 
 
-.contact-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.contact-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto;  }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: start; }
 .contact-info { display: flex; flex-direction: column; gap: 20px; }
 .bikesh-card {
@@ -239,20 +239,20 @@ body {
 }
 .info-card::before {
     content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-    background: linear-gradient(180deg, var(--primary), var(--secondary-light));
+   background: linear-gradient(90deg, #3b82f6, #8b5cf6), var(--secondary-light);
     transform: scaleY(0); transform-origin: top; transition: transform 0.4s ease;
 }
 .info-card:hover::before { transform: scaleY(1); }
 .info-card:hover { transform: translateX(8px); box-shadow: var(--shadow-lg); border-color: rgba(255,114,0,0.2); }
 .info-icon {
-    width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    width: 50px; height: 50px;  background: linear-gradient(90deg, #3b82f6, #8b5cf6), var(--secondary-light);
     border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
     color: white; font-size: 20px; margin-bottom: 16px; transition: all 0.3s ease;
 }
 .info-card:hover .info-icon { transform: scale(1.1) rotate(-5deg); }
 .info-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
 .info-card p { color: var(--text-medium); font-size: 0.95rem; line-height: 1.6; }
-.info-card a { color: var(--primary); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+.info-card a { color: linear-gradient(90deg, #3b82f6, #8b5cf6); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
 .info-card a:hover { color: var(--primary-dark); }
 .social-links { display: flex; gap: 12px; margin-top: 12px; }
 .social-btn {
@@ -272,8 +272,8 @@ body {
 .form-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
 .form-card .subtitle { color: var(--text-medium); font-size: 0.95rem; margin-bottom: 28px; }
 .form-group { margin-bottom: 20px; position: relative; }
-.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
-.form-group label i { color: var(--primary); margin-right: 6px; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color:linear-gradient(90deg, #3b82f6, #8b5cf6); margin-bottom: 8px; }
+.form-group label i { color: linear-gradient(90deg, #3b82f6, #8b5cf6); margin-right: 6px; }
 .form-group input, .form-group textarea, .form-group select {
     width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: var(--radius-sm);
     font-family: inherit; font-size: 0.95rem; color: var(--text-dark); background: var(--bg); transition: all 0.3s ease;
@@ -285,7 +285,7 @@ body {
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .submit-btn {
     display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
-    padding: 16px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 16px; background:linear-gradient(90deg, #3b82f6, #8b5cf6), var(--primary-dark);
     color: white; border: none; border-radius: var(--radius-sm); font-family: inherit;
     font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255,114,0,0.3); position: relative; overflow: hidden;
